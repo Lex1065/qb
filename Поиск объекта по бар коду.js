@@ -1,13 +1,3 @@
-// ==UserScript==
-// @name         Управление перемещением и чекбоксами объектов по баркоду с выделением названий
-// @namespace    http://tampermonkey.net/
-// @version      2.0
-// @description  Перемещает объекты по баркоду, выделяет названия зеленым жирным шрифтом при выделении чекбоксов, и предотвращает отправку формы при нажатии Enter.
-// @author       You
-// @match        https://api.qbbox.ru/admin?crudAction=addReturnOrder&crudControllerFqcn=App%5CController%5CAdmin%5CUserController&entityId=*
-// @grant        GM_addStyle
-// ==/UserScript==
-
 (function() {
     'use strict';
 
