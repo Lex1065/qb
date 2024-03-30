@@ -18,7 +18,7 @@
         }
         .countLabel {
             display: block;
-            color: blue !important;
+            color: black !important;
             margin-bottom: 0px;
             font-weight: bold !important;
         }
