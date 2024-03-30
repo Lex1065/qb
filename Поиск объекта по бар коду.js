@@ -13,12 +13,12 @@
 
     GM_addStyle(`
         .highlight {
-            color: black !important;
+            color: green !important;
             font-weight: bold !important;
         }
         .countLabel {
             display: block;
-            color: red !important;
+            color: green !important;
             margin-bottom: 0px;
             font-weight: bold !important;
         }
