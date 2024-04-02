@@ -12,7 +12,7 @@
     'use strict';
 
     // Выбираем конкретный элемент с классом "d-flex" (например, третий элемент)
-    var specificElement = document.getElementsByClassName('d-flex')[8];
+    var specificElement = document.getElementsByClassName('d-flex')[9];
 
     // Присваиваем выбранному элементу id "test"
     if (specificElement) {
