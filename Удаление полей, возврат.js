@@ -46,7 +46,7 @@ setTimeout(function() {
     // Поле для комментария
     var commentField = document.querySelector('textarea[name="comment"]');
     if (commentField) {
-        commentField.value = '<br>полный/частичный платный возврат\n<br>*причина для полного возврата:\n<br>тариф:\n<br>хранит: /платит:\n<br>долг:\n<br>сборка:\n<br>кпп:\n<br>паркинг:\n<br>лифт:\n<br>присутствует:\n<br>*ЭК/БКДоверка\n<br>оператор:\n<br>';
+        commentField.value = '<br>полный/частичный платный возврат\n<br>*причина для полного возврата:\n<br>хранит: /платит:\n<br>долг:\n<br>сборка:\n<br>кпп:\n<br>паркинг:\n<br>лифт:\n<br>присутствует:\n<br>*ЭК/БКДоверка\n<br>оператор:\n<br>';
         commentField.style.height = '300px';
         commentField.style.overflowY = 'hidden';
         commentField.addEventListener('input', function () {
