@@ -80,3 +80,78 @@
         }
     };
 })();
+
+
+
+// ==UserScript==
+// @name         Добавление элементов: хранит, платит, долг - в текстовое поле.
+// @namespace    http://tampermonkey.net/
+// @version      0.6
+// @description  Присваивает ID элементам, сохраняет и вставляет значения при создании заказа на вывоз или возврата, а также копирует и вставляет значение долга.
+// @author       Алексей
+// @match        https://api.qbbox.ru/admin*
+// @grant        none
+// ==/UserScript==
+
+(function() {
+    'use strict';
+
+    var isOrderPage = location.href.includes("addNewOrder");
+    var isReturnOrderPage = location.href.includes("addReturnOrder");
+
+    if (!isOrderPage && !isReturnOrderPage) {
+        // Присваивание ID элементам <dt>
+        var dtElements = document.getElementsByTagName('dt');
+        if (dtElements.length > 2) dtElements[2].id = 'tarif'; // Присваиваем ID элементу tarif
+        if (dtElements.length > 15) dtElements[15].id = 'platit'; // Присваиваем ID элементу platit
+        if (dtElements.length > 16) dtElements[16].id = 'hranit'; // Присваиваем ID элементу hranit
+
+        // Добавление обработчиков для кнопок
+        var addOrderButton = document.querySelector('a.btn.btn-success[href*="addNewOrder"]');
+        var addReturnOrderButton = document.querySelector('a.btn.btn-warning[href*="addReturnOrder"]');
+
+        if (addOrderButton) {
+            addOrderButton.addEventListener('click', function() {
+                saveValues();
+            });
+        }
+
+        if (addReturnOrderButton) {
+            addReturnOrderButton.addEventListener('click', function() {
+                saveValues();
+            });
+        }
+    } else if (isOrderPage || isReturnOrderPage) {
+        // Вставка значений на странице заказа или возврата
+        window.addEventListener('load', function() {
+            var hranitValue = localStorage.getItem('hranit');
+            var platitValue = localStorage.getItem('platit');
+            var debtValue = localStorage.getItem('debt'); // Получаем значение долга из localStorage
+
+            var textarea = document.querySelector('textarea[name="comment"]');
+            if (textarea && hranitValue && platitValue && debtValue) {
+                // Обновляем содержимое textarea
+                textarea.value = textarea.value
+                    .replace('хранит: / платит:', `хранит: ${hranitValue} / платит: ${platitValue}`)
+                    .replace('долг:', `долг: ${debtValue}`);
+
+                // Очищаем значения в localStorage
+                localStorage.removeItem('hranit');
+                localStorage.removeItem('platit');
+                localStorage.removeItem('debt');
+            }
+        });
+    }
+
+    // Функция для сохранения значений в localStorage
+    function saveValues() {
+        var hranitValue = document.getElementById('hranit') ? document.getElementById('hranit').innerText : '';
+        var platitValue = document.getElementById('platit') ? document.getElementById('platit').innerText : '';
+        var debtValueElement = document.querySelector('.badge.badge-pill');
+        var debtValue = debtValueElement ? debtValueElement.innerText : '';
+
+        localStorage.setItem('hranit', hranitValue);
+        localStorage.setItem('platit', platitValue);
+        localStorage.setItem('debt', debtValue);
+    }
+})();
