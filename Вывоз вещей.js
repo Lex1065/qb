@@ -51,10 +51,10 @@
         });
 
         // Очистка localStorage после использования данных
-        localStorage.removeItem('qbboxData');
-        localStorage.removeItem('qbboxTestData');
-        localStorage.removeItem('qbboxTest1Data');
-        localStorage.removeItem('qbboxTelephoneData');
+        //localStorage.removeItem('qbboxData');
+        //localStorage.removeItem('qbboxTestData');
+        //localStorage.removeItem('qbboxTest1Data');
+        //localStorage.removeItem('qbboxTelephoneData');
     }
 
     window.onload = function() {
@@ -137,9 +137,9 @@
                         .replace('долг:', `долг: ${debtValue}`);
 
                     // Очищаем значения в localStorage
-                    localStorage.removeItem('hranit');
-                    localStorage.removeItem('platit');
-                    localStorage.removeItem('debt');
+                    //localStorage.removeItem('hranit');
+                    //localStorage.removeItem('platit');
+                    //localStorage.removeItem('debt');
                 }
             }, 2); // Изменено: добавлена задержка в 0,0002 секунд
         });
