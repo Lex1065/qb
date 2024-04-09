@@ -112,34 +112,36 @@
 
         if (addOrderButton) {
             addOrderButton.addEventListener('click', function() {
-                saveValues();
+                setTimeout(saveValues, 2); // Изменено: добавлена задержка в 0,0002 секунд
             });
         }
 
         if (addReturnOrderButton) {
             addReturnOrderButton.addEventListener('click', function() {
-                saveValues();
+                setTimeout(saveValues, 2); // Изменено: добавлена задержка в 0,0002 секунд
             });
         }
     } else if (isOrderPage || isReturnOrderPage) {
         // Вставка значений на странице заказа или возврата
         window.addEventListener('load', function() {
-            var hranitValue = localStorage.getItem('hranit');
-            var platitValue = localStorage.getItem('platit');
-            var debtValue = localStorage.getItem('debt'); // Получаем значение долга из localStorage
+            setTimeout(function() { // Изменено: добавлена задержка в 5 секунд
+                var hranitValue = localStorage.getItem('hranit');
+                var platitValue = localStorage.getItem('platit');
+                var debtValue = localStorage.getItem('debt'); // Получаем значение долга из localStorage
 
-            var textarea = document.querySelector('textarea[name="comment"]');
-            if (textarea && hranitValue && platitValue && debtValue) {
-                // Обновляем содержимое textarea
-                textarea.value = textarea.value
-                    .replace('хранит: / платит:', `хранит: ${hranitValue} / платит: ${platitValue}`)
-                    .replace('долг:', `долг: ${debtValue}`);
+                var textarea = document.querySelector('textarea[name="comment"]');
+                if (textarea && hranitValue && platitValue && debtValue) {
+                    // Обновляем содержимое textarea
+                    textarea.value = textarea.value
+                        .replace('хранит: / платит:', `хранит: ${hranitValue} / платит: ${platitValue}`)
+                        .replace('долг:', `долг: ${debtValue}`);
 
-                // Очищаем значения в localStorage
-                localStorage.removeItem('hranit');
-                localStorage.removeItem('platit');
-                localStorage.removeItem('debt');
-            }
+                    // Очищаем значения в localStorage
+                    localStorage.removeItem('hranit');
+                    localStorage.removeItem('platit');
+                    localStorage.removeItem('debt');
+                }
+            }, 2); // Изменено: добавлена задержка в 0,0002 секунд
         });
     }
 
@@ -155,3 +157,4 @@
         localStorage.setItem('debt', debtValue);
     }
 })();
+
