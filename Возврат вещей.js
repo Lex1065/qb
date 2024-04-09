@@ -39,10 +39,10 @@
 
         // Извлечение данных из localStorage
         var dataBlocks = [
-            //localStorage.getItem('qbboxData'),
-            //localStorage.getItem('qbboxTestData'),
-            //localStorage.getItem('qbboxTest1Data'),
-            //localStorage.getItem('qbboxTelephoneData')
+            localStorage.getItem('qbboxData'),
+            localStorage.getItem('qbboxTestData'),
+            localStorage.getItem('qbboxTest1Data'),
+            localStorage.getItem('qbboxTelephoneData')
         ];
 
         // Создание и добавление блоков с данными на страницу
@@ -59,10 +59,10 @@
         });
 
         // Очистка localStorage после использования данных
-        localStorage.removeItem('qbboxData');
-        localStorage.removeItem('qbboxTestData');
-        localStorage.removeItem('qbboxTest1Data');
-        localStorage.removeItem('qbboxTelephoneData');
+        //localStorage.removeItem('qbboxData');
+        //localStorage.removeItem('qbboxTestData');
+        //localStorage.removeItem('qbboxTest1Data');
+        //localStorage.removeItem('qbboxTelephoneData');
     }
 
     // Организация блоков данных после загрузки страницы
