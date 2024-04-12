@@ -67,6 +67,7 @@
 
     // Организация блоков данных после загрузки страницы
     window.onload = function() {
+    setTimeout(function() {
         var header = document.querySelector('.content-panel-header');
         if (header) {
             var blocks = Array.from(header.querySelectorAll('div'));
@@ -82,5 +83,7 @@
 
             header.appendChild(newBlock);
         }
-    };
+    }, 10);
+};
+
 })();
