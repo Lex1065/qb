@@ -58,6 +58,7 @@
     }
 
     window.onload = function() {
+    setTimeout(function() {
         var header = document.querySelector('.content-panel-header');
         if (header) {
             var blocks = header.querySelectorAll('div');
@@ -78,7 +79,8 @@
 
             header.appendChild(newBlock);
         }
-    };
+    }, 10); // 3 секунды в миллисекундах
+};
 })();
 
 
@@ -141,7 +143,7 @@
                     //localStorage.removeItem('platit');
                     //localStorage.removeItem('debt');
                 }
-            }, 2); // Изменено: добавлена задержка в 0,0002 секунд
+            }, 10); // Изменено: добавлена задержка в 0,0002 секунд
         });
     }
 
@@ -157,4 +159,3 @@
         localStorage.setItem('debt', debtValue);
     }
 })();
-
