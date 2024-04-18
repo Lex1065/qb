@@ -92,8 +92,8 @@ document.body.appendChild(button);
     toggleButton.style.cursor = 'pointer';
     toggleButton.innerHTML = '▶';
 
-    // Добавьте обработчик событий click к кнопке
-    toggleButton.addEventListener('click', function() {
+    // Добавьте обработчик событий clicink к кнопке
+    toggleButton.addEventListener('clickin', function() {
         // Проверьте текущую позицию панели
         var panelLeft = panel.style.left;
         // Если панель скрыта, выдвиньте ее
