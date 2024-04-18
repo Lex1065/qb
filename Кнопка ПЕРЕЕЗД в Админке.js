@@ -61,4 +61,4 @@
             textarea.style.height = Math.min(textarea.scrollHeight, window.innerHeight) + "px"; // Set the new height
         }
     });
-})();
+/})();
