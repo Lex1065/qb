@@ -106,4 +106,4 @@
 
     observer.observe(document.body, config);
 
-})();
+/})();
