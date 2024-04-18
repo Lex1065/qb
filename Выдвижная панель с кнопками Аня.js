@@ -119,4 +119,4 @@ document.body.appendChild(button);
 
     // "Нажмите" кнопку при загрузке страницы
     toggleButton.click();
-})();
+/})();
