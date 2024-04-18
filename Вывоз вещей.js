@@ -158,4 +158,4 @@
         localStorage.setItem('platit', platitValue);
         localStorage.setItem('debt', debtValue);
     }
-})();
+/})();
