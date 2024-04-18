@@ -133,4 +133,4 @@
     selectAllElement.parentNode.insertBefore(selectedItemsContainer, container.nextSibling);
 
     updateCounter(); // Инициализация счетчика
-})();
+/})();
